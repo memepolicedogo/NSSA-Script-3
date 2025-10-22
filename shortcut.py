@@ -23,7 +23,7 @@ def create_shortcut():
         print("Invalid filename, exiting")
         print(str(proc.stderr))
         return
-    out = str(proc.stdout)
+    out = proc.stdout.decode()
     results = out.splitlines()
     if len(results) == 1:
         path = results[0]
