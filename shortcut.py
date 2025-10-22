@@ -111,15 +111,11 @@ while (command != 'q'):
     match command:
         case 'c':
             create_shortcut()
-            break
         case 'd':
             delete_shortcut()
-            break
         case 'l':
             list_shortcuts()
-            break
-        case 'h':
+        case _:
             print(HELP)
-            break
 print("Exiting")
 
