@@ -27,7 +27,7 @@ def create_shortcut():
     results = out.splitlines()
     if len(results) == 1:
         path = results[0]
-        name = path.split("/")[-1].strip(' \n\t')
+        name = path.split("/")[-1].strip(' \n\t\'')
         print(f"Creating link to {file} at {DESKTOP+name}")
         os.symlink(path, DESKTOP + name)
         return
