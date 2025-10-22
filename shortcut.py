@@ -106,8 +106,9 @@ def list_shortcuts():
 
 
 print(HELP)
-command = input().lower()[0]
+command = ''
 while (command != 'q'):
+    command = input().lower()[0]
     if command == 'c':
         create_shortcut()
     elif command == 'd':
