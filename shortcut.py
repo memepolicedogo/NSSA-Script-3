@@ -28,7 +28,8 @@ def create_shortcut():
     if len(results) == 1:
         path = results[0]
         name = path.split("/")[-1]
-        os.symlink(path, file)
+        print(f"Creating link to {file} at {DESKTOP+name}")
+        os.symlink(path, DESKTOP + name)
         return
     print(f"{len(results)} files with the name \"{file}\" found:")
     while(True):
