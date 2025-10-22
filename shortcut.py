@@ -19,8 +19,7 @@ def create_shortcut():
     print("Enter a file name")
     file = input()
     proc = subprocess.run(['find', HOME,"-name", file, "-type", "f"], capture_output=True)
-    print(proc.returncode)
-    if not proc.returncode:
+    if proc.returncode != 0:
         print("Invalid filename, exiting")
         print(str(proc.stderr))
         return
@@ -59,7 +58,7 @@ def delete_shortcut():
     file = input()
     # find all symlinks on the desktop with the given name
     proc = subprocess.run(['find', DESKTOP,"-name", file, "-type", "l"], capture_output=True)
-    if not proc.returncode:
+    if proc.returncode != 0:
         print("Invalid filename")
         return
     out = str(proc.stdout)
@@ -97,7 +96,7 @@ def delete_shortcut():
 def list_shortcuts():
     # Find shortcuts
     proc = subprocess.run(['find', HOME, "-type", "l"], capture_output=True)
-    if not proc.returncode:
+    if proc.returncode != 0:
         print("Something went wrong")
         return
     links = proc.stdout.splitlines()
