@@ -27,7 +27,7 @@ def create_shortcut():
     results = out.splitlines()
     if len(results) == 1:
         path = results[0]
-        print(f"Creating link to {file} at {DESKTOP+file}")
+        print(f"Creating link to {path} at {DESKTOP+file}")
         os.symlink(path, DESKTOP + file)
         return
     print(f"{len(results)} files with the name \"{file}\" found:")
@@ -45,7 +45,7 @@ def create_shortcut():
             if index > len(results):
                 raise ValueError
             path = results[index-1]
-            print(f"Creating link to {file} at {DESKTOP+file}")
+            print(f"Creating link to {path} at {DESKTOP+file}")
             os.symlink(path, DESKTOP + file)
             return
         except ValueError:
