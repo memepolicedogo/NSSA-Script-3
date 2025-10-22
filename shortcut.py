@@ -28,8 +28,8 @@ def create_shortcut():
     if len(results) == 1:
         path = results[0]
         name = path.split("/")[-1]
-        print(f"Creating link to {file} at {DESKTOP+name.strip()}")
-        os.symlink(path, DESKTOP + name.strip())
+        print(f"Creating link to {file} at {DESKTOP+name.strip(" \n\t")}")
+        os.symlink(path, DESKTOP + name.strip(" \n\t"))
         return
     print(f"{len(results)} files with the name \"{file}\" found:")
     while(True):
@@ -117,7 +117,7 @@ while (command != 'q'):
         delete_shortcut()
     elif command == 'l':
         list_shortcuts()
-    else:
+    elif command == 'h':
         print(HELP)
 print("Exiting")
 
