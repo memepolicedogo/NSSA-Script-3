@@ -108,14 +108,13 @@ def list_shortcuts():
 print(HELP)
 command = input().lower()[0]
 while (command != 'q'):
-    match command:
-        case 'c':
-            create_shortcut()
-        case 'd':
-            delete_shortcut()
-        case 'l':
-            list_shortcuts()
-        case _:
-            print(HELP)
+    if command == 'c':
+        create_shortcut()
+    elif command == 'd':
+        delete_shortcut()
+    elif command == 'l':
+        list_shortcuts()
+    else:
+        print(HELP)
 print("Exiting")
 
