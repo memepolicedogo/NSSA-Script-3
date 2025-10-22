@@ -20,7 +20,8 @@ def create_shortcut():
     file = input()
     proc = subprocess.run(['find', HOME,"-name", file, "-type", "f"], capture_output=True)
     if not proc.returncode:
-        print("Invalid filename")
+        print("Invalid filename, exiting")
+        print(str(proc.stderr))
         return
     out = str(proc.stdout)
     results = out.splitlines()
